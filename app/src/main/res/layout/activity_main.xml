@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
-    android:background="@drawable/quad_hd100"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@drawable/quad_hd100">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:id="@+id/top_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:layout_width="35dp"
@@ -31,12 +34,12 @@
         <TextView
             android:layout_width="49dp"
             android:layout_height="33dp"
-            android:textSize="15sp"
-            android:background="@drawable/shape_rounded_percentages"
             android:layout_marginTop="52dp"
+            android:background="@drawable/shape_rounded_percentages"
             android:gravity="center"
             android:text="43%"
             android:textColor="#E0E0E0"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
         <View
@@ -47,81 +50,28 @@
         <ImageButton
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="54.5dp"
+            android:layout_marginEnd="15dp"
             android:background="@android:color/transparent"
             android:contentDescription="information"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_info" />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="232dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="62dp"
-                android:background="@drawable/shape_rounded_main_text"
-                android:gravity="center"
-                android:text="100 kg"
-                android:textColor="#E0E0E0"
-                android:textSize="32dp"
-                tools:ignore="HardcodedText" />
-
-            <ImageButton
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="206dp"
-                android:layout_marginTop="73dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="edit start weight"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_edit" />
-        </FrameLayout>
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/done_layout"
+        app:layout_constraintTop_toBottomOf="@+id/top_layout">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginStart="124dp"
-                android:src="@drawable/ic_date"/>
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="4dp"
-                android:textSize="16sp"
-                android:text="14.11.2024"
-                android:textColor="#B0BEC5"
-                android:gravity="center_horizontal"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="20dp"/>
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -131,10 +81,10 @@
                     android:layout_width="232dp"
                     android:layout_height="52dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="62dp"
                     android:background="@drawable/shape_rounded_main_text"
                     android:gravity="center"
-                    android:text="145 kg"
+                    android:text="100 kg"
                     android:textColor="#E0E0E0"
                     android:textSize="32dp"
                     tools:ignore="HardcodedText" />
@@ -143,9 +93,9 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginStart="206dp"
-                    android:layout_marginTop="31dp"
+                    android:layout_marginTop="73dp"
                     android:background="@android:color/transparent"
-                    android:contentDescription="edit finish weight"
+                    android:contentDescription="edit start weight"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_edit" />
             </FrameLayout>
@@ -153,53 +103,119 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_width="14dp"
                     android:layout_height="14dp"
-                    android:layout_marginTop="3dp"
                     android:layout_marginStart="124dp"
-                    android:src="@drawable/ic_date"/>
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/ic_date" />
 
                 <TextView
                     android:layout_width="85dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="4dp"
-                    android:textSize="16sp"
-                    android:text="**.**.20**"
-                    android:textColor="#B0BEC5"
                     android:gravity="center_horizontal"
+                    android:text="14.11.2024"
+                    android:textColor="#B0BEC5"
+                    android:textSize="16sp"
                     tools:ignore="HardcodedText" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_arrow" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="232dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/shape_rounded_main_text"
+                        android:gravity="center"
+                        android:text="145 kg"
+                        android:textColor="#E0E0E0"
+                        android:textSize="32dp"
+                        tools:ignore="HardcodedText" />
+
+                    <ImageButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="206dp"
+                        android:layout_marginTop="31dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="edit finish weight"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_edit" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="124dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/ic_date" />
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="4dp"
+                        android:gravity="center_horizontal"
+                        android:text="**.**.20**"
+                        android:textColor="#B0BEC5"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
-
-    </LinearLayout>
 
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:contentDescription="calculator"
-            android:src="@drawable/ic_calculator"
-            android:background="@drawable/shape_rounded_main_text"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="120dp"
-            android:layout_marginStart="32dp"/>
+            android:background="@drawable/shape_rounded_main_text"
+            android:contentDescription="calculator"
+            android:src="@drawable/ic_calculator" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="157dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:id="@+id/done_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/"
+        app:layout_constraintTop_toBottomOf="@+id/main_layout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="d\u00A0\u00A0\u00A0\u00A0ne"
             android:textAllCaps="true"
-            android:layout_gravity="center"
-            android:textSize="48dp"
             android:textColor="#B0BEC5"
+            android:textSize="48dp"
             tools:ignore="HardcodedText" />
 
         <Button
@@ -207,48 +223,50 @@
             android:layout_height="39dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="45dp"
-            android:text="+"
-            android:textSize="24sp"
-            android:textColor="#2E2E2E"
-            android:backgroundTint="#8BC34A"
             android:background="@drawable/shape_rounded_button_plus_workouts"
-            />
+            android:backgroundTint="#8BC34A"
+            android:text="+"
+            android:textColor="#2E2E2E"
+            android:textSize="24sp" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="37.5dp"
             android:layout_gravity="center_vertical"
-            app:indicatorSize="45dp"
+            android:layout_marginStart="37.5dp"
+            android:progress="43"
             app:indicatorColor="@color/white"
-            app:trackColor="#B0BEC5"
-            android:progress="43"/>
+            app:indicatorSize="45dp"
+            app:trackColor="#B0BEC5" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="64dp"
-            android:textSize="16sp"
             android:text="46 workouts"
             android:textColor="#B0BEC5"
+            android:textSize="16sp"
             tools:ignore="HardcodedText" />
 
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/chart_layout"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/done_layout"
+        tools:ignore="MissingConstraints">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp" />
-    </RelativeLayout>
+<!--        <com.github.mikephil.charting.charts.LineChart-->
+<!--            android:id="@+id/lineChart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_margin="16dp" />-->
+    </FrameLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
